@@ -1,0 +1,20 @@
+.object{
+    display: flex;
+    position: relative;
+    z-index: 90;
+    padding-top: 60px;
+    justify-content: flex-start;
+    margin-left: 35px;
+    
+}
+.object__description{
+  
+    width: 30%;
+}
+.object__button{
+    background-color: #fa7258;
+    border: none;
+    border-radius: 25px;
+    width: max-content;
+    padding: 5px 25px 5px 25px;
+}

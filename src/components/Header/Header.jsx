@@ -26,8 +26,8 @@ const Header = () => {
     const menuRef = useRef(null)
     const toggleMenu = () => menuRef.current.classList.toggle('show__menu')
     return <header className='header'>
-        <Container>
-            <Row>
+        {/* <Container className='container__header'> */}
+            <Row className='col-12'>
         <div className="nav__wrapper d-flex align-items-center justify-content-between">
         <div className='logo'>
             <img src={logo}  className="w-50" alt="logo"/>
@@ -65,7 +65,6 @@ const Header = () => {
 
                 </div>
             </Row>
-            <Row className='col-12'>
                 <div className='header__secondLine'>
                 <div className='header__featureContainerOption'>
             <span>Overview</span>  
@@ -95,8 +94,7 @@ const Header = () => {
             <span>AI ChatBox</span>  
           </div>
               </div>
-            </Row> 
-            </Container>
+            {/* </Container> */}
             
    
    

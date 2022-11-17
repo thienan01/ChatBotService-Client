@@ -1,8 +1,12 @@
+.homePage{
+    height: 800px;
+}
 .homePage__img{
     width: 100%;
-    position:-webkit-sticky;
+    position: absolute;
     z-index: -1;
     display: flex;
+    margin-bottom: -200px;
     mask-image: linear-gradient(to bottom ,rgb(0,0,0,1),rgb(0,0,0,0));
 }
 

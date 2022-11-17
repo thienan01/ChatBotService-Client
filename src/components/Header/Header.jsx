@@ -1,5 +1,5 @@
 import React, {useRef} from 'react'
-import { Container } from 'reactstrap'
+import { Container, Row } from 'reactstrap'
 import logo from '../../assets/logo.png'
 import { NavLink, Link } from 'react-router-dom'
 import '../../styles/header.css'
@@ -26,7 +26,9 @@ const Header = () => {
     const menuRef = useRef(null)
     const toggleMenu = () => menuRef.current.classList.toggle('show__menu')
     return <header className='header'>
-    <Container>
+      
+        <Container>
+            <Row>
         <div className="nav__wrapper d-flex align-items-center justify-content-between">
         <div className='logo'>
             <img src={logo} alt="logo"/>
@@ -62,8 +64,45 @@ const Header = () => {
             
         </div>
 
+                </div>
+            </Row>
+            <Row className='col-12'>
+                <div className='header__secondLine'>
+                <div className='header__featureContainerOption'>
+            <span>Overview</span>  
         </div>
-    </Container>
+
+        <div className='header__featureContainerOption'>
+            <span>Features</span>  
+        </div>
+
+        <div className='header__featureContainerOption'>
+            <span>Use Cases</span>  
+        </div>
+
+        <div className='header__featureContainerOption'>
+            <span>Pricing</span>  
+        </div>
+
+        <div className='header__featureContainerOption'>
+            <span>Resources</span>  
+        </div>
+
+        <div className='header__featureContainerOption'>
+            <span>Customers</span>  
+        </div>
+
+        <div className='header__featureContainerOption'>
+            <span>AI ChatBox</span>  
+          </div>
+              </div>
+            </Row> 
+            </Container>
+            
+   
+   
+      
+        
   </header>
 }
 

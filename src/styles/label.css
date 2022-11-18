@@ -1,0 +1,19 @@
+.label__content{
+    width: 280px;
+    height: 210px;
+    background-image:url("https://d1.awsstatic.com/s3-pdp-redesign/Benefit-Card-Background.a108d24bf994da9387de3a211bf411597e1abd32.png");
+    background-position:50% 50%;
+    background-size:cover;
+    color:#333333;
+    font-size:14px;
+    line-height:22.4px;
+    padding:15px;
+    margin: 10px 20px;
+    
+
+}
+.label__content p{
+    color: #fff;
+    font-size:20px;
+    line-height:30px;
+}

@@ -2,9 +2,10 @@
     display: flex;
     position: relative;
     z-index: 90;
-    padding-top: 60px;
+    padding-top: 100px;
     justify-content: flex-start;
-    margin-left: 35px;
+    color: #fff !important;
+    margin-bottom: 20px;
     
 }
 .object__description{
@@ -14,7 +15,22 @@
 .object__button{
     background-color: #fa7258;
     border: none;
+    margin-top: 20px;
     border-radius: 25px;
     width: max-content;
-    padding: 5px 25px 5px 25px;
+    padding: 5px 55px;
+    text-align:center;
+    text-shadow:#000000 0px 1px 0px;
+    color: #fff;
+}
+.object h1{
+    font-size: 36px !important;
+    color: #fff !important;
+
+}
+.title__chatbox{
+    line-height: 31.2px;
+    font-family: "RocknRoll One";
+    font-weight: 400;
+   
 }

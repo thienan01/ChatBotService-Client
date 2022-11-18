@@ -1,5 +1,6 @@
 .homePage{
-    height: 800px;
+    height: max-content;
+    margin-left: 35px;
 }
 .homePage__img{
     width: 100%;
@@ -100,6 +101,15 @@ textarea:focus, input:focus{
 .header__optionInLine{
 
     font-size: 13px;
+}
+.label__container{
+    display: flex;
+}
+.label__content:first-child{
+   margin-left: 0px !important;
+}
+.label__content:last-child{
+    margin-right: 0px;
 }
 .header__createAccount{
     height: 30px;

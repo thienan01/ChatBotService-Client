@@ -1,0 +1,21 @@
+.how__ToWork{
+    margin-top: 25px;
+}
+.how__ToWork h2{
+    font-family:AmazonEmberBold;
+    font-size:28px;
+    font-weight:500;
+    line-height:36.4px;
+}
+.how__ToWork p{
+    color:#333333;
+    line-height:25.6px;
+}
+.how__ToWork img{
+    color:#033160;
+    display:inline;
+    font-size:14px;
+    line-height:0px;
+    text-align:center;
+    width: 100%;
+}

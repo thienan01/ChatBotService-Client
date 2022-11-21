@@ -5,6 +5,12 @@ import { FiSettings } from 'react-icons/fi';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 import { useStateContext } from '../contexts/ContextProvider';
 import Sidebar from "../components/Sidebar"
+import Navbar from '../components/Navbar';
+import ThemeSetting from "../components/ThemeSettings"
+import Employees from './Employees';
+import Customers from './Customers';
+import Ecommerce from './Ecommerce';
+
 
 const Dashboard=() => {
     const { setCurrentColor, setCurrentMode, currentMode, activeMenu, currentColor, themeSettings, setThemeSettings } = useStateContext();
@@ -54,19 +60,20 @@ const Dashboard=() => {
             }
           >
             <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full ">
-              {/* <Navbar /> */}
+              <Navbar/>
             </div>
             <div>
-              {themeSettings && ("Themsetting")}
+              {themeSettings && (<ThemeSetting/>)}
 
               <Routes>
                 {/* dashboard  */}
                 <Route path="/" element="Ecommerce" />
-                <Route path="/ecommerce" element="Ecommerce"  />
+                <Route path="/" element={<Ecommerce/>}  />
 
                 {/* pages  */}
-                <Route path="/orders" element="order"  />
-                <Route path="/employees" element="order"  />
+                <Route path="/orders" element="order" />
+                <Route path="/employees" element={<Employees />} />
+                <Route path="/customers" element={<Customers />} />
               
 
                 {/* apps  */}

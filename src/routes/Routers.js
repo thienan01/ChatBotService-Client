@@ -4,6 +4,7 @@ import Home from "../pages/Home";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import FlowContainer from "../pages/Flow";
+import Dashboard from "../pages/Dashboard"
 const Routers = () => {
   return (
     <Routes>
@@ -12,6 +13,7 @@ const Routers = () => {
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/train" element={<FlowContainer />} />
+
     </Routes>
   );
 };

@@ -13,7 +13,7 @@ import Ecommerce from './Ecommerce';
 
 
 const Dashboard=() => {
-    const { setCurrentColor, setCurrentMode, currentMode, activeMenu, currentColor, themeSettings, setThemeSettings } = useStateContext();
+    const { setCurrentColor, setCurrentMode, currentMode, activeMenu, currentColor, ColorPicker, themeSettings, setThemeSettings } = useStateContext();
 
     useEffect(() => {
       const currentThemeColor = localStorage.getItem('colorMode');
@@ -77,7 +77,7 @@ const Dashboard=() => {
               
 
                 {/* apps  */}
-                <Route path="/color-picker" element={<ColorPicker />} /> */}
+                <Route path="/color-picker" element={<ColorPicker />} /> 
 
                 {/* charts  */}
                 {/* <Route path="/line" element={<Line />} />

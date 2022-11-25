@@ -485,40 +485,20 @@ export const links = [
     title: 'Type',
     links: [
       {
-        name: 'VideoCall',
+        name: 'AI',
         icon: <AiOutlineShoppingCart />,
       },
       {
-        name: 'employees',
+        name: 'List',
         icon: <IoMdContacts />,
       },
       {
-        name: 'customers',
+        name: 'Page Note',
         icon: <RiContactsLine />,
       },
     ],
   },
-  {
-    title: 'Apps',
-    links: [
-      {
-        name: 'calendar',
-        icon: <AiOutlineCalendar />,
-      },
-      {
-        name: 'kanban',
-        icon: <BsKanban />,
-      },
-      {
-        name: 'editor',
-        icon: <FiEdit />,
-      },
-      {
-        name: 'color-picker',
-        icon: <BiColorFill />,
-      },
-    ],
-  },
+ 
 
 ];
 

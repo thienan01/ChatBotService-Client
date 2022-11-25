@@ -4,11 +4,11 @@ import { GoPrimitiveDot } from 'react-icons/go';
 import { IoIosMore } from 'react-icons/io';
 import { DropDownListComponent } from '@syncfusion/ej2-react-dropdowns';
 
-import  Stacked from '../components/Stacked';
-import   Pie  from '../components/Pie';
-import   Button  from '../components/Button';
-import   LineChart  from '../components/LineChart';
-import SparkLine from '../components/SparkLine';
+import  Stacked from '../components/DashboardObject/Stacked';
+import   Pie  from '../components/DashboardObject/Pie';
+import   Button  from '../components/DashboardObject/Button';
+import   LineChart  from '../components/DashboardObject/LineChart';
+import SparkLine from '../components/DashboardObject/SparkLine';
 import { earningData, medicalproBranding, recentTransactions, weeklyStats, dropdownData, SparklineAreaData, ecomPieChartData } from '../data/dummy';
 import { useStateContext } from '../contexts/ContextProvider';
 import product9 from '../data/product9.jpg';

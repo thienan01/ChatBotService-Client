@@ -10,6 +10,7 @@ import ThemeSetting from "../components/DashboardObject/ThemeSettings"
 import Employees from './Employees';
 import Customers from './Customers';
 import Ecommerce from './Ecommerce';
+import Trainpage from './Trainpage';
 
 
 const Dashboard=() => {
@@ -67,13 +68,13 @@ const Dashboard=() => {
 
               <Routes>
                 {/* dashboard  */}
-                <Route path="/" element="Ecommerce" />
+                <Route path="/AI" element={<Trainpage/>} />
                 <Route path="/" element={<Ecommerce/>}  />
 
                 {/* pages  */}
                 <Route path="/orders" element="order" />
-                <Route path="/employees" element={<Employees />} />
-                <Route path="/customers" element={<Customers />} />
+                <Route path="/List" element={<Employees />} />
+                <Route path="/PageNote" element={<Customers />} />
               
 
                 {/* apps  */}

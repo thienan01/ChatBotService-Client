@@ -9,11 +9,7 @@ import avatar from '../../data/avatar.jpg';
 
 import Notification from "./Notification"
 import UserProfile from "./UserProfile"
-<<<<<<< Updated upstream
-import Chat from "./Chat"
-=======
 import Chat from "../../pages/Chat"
->>>>>>> Stashed changes
 
 import { useStateContext } from '../../contexts/ContextProvider';
 

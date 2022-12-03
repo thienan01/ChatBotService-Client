@@ -9,8 +9,19 @@ import Navbar from '../components/DashboardObject/Navbar';
 import ThemeSetting from "../components/DashboardObject/ThemeSettings"
 import Employees from './Employees';
 import Customers from './Customers';
+<<<<<<< Updated upstream
 import Ecommerce from './Ecommerce';
 import Trainpage from './Trainpage';
+=======
+import Trainpage from './Trainpage';
+import FlowContainer from './Flow';
+import ListScript from './ListScript'
+import ListIntent from './ListIntent'
+import ListPattern from './ListPattern'
+import Coppy from './Coppy';
+
+
+>>>>>>> Stashed changes
 
 
 const Dashboard=() => {
@@ -45,7 +56,11 @@ const Dashboard=() => {
             </TooltipComponent>
           </div>
           {activeMenu ? (
+<<<<<<< Updated upstream
             <div className="w-72 fixed sidebar dark:bg-secondary-dark-bg bg-cyan-200 ">
+=======
+            <div className="w-72 fixed sidebar dark:bg-secondary-dark-bg bg-blue-300 ">
+>>>>>>> Stashed changes
               <Sidebar />
             </div>
           ) : (
@@ -69,12 +84,20 @@ const Dashboard=() => {
               <Routes>
                 {/* dashboard  */}
                 <Route path="/AI" element={<Trainpage/>} />
+<<<<<<< Updated upstream
                 <Route path="/" element={<Ecommerce/>}  />
 
                 {/* pages  */}
                 <Route path="/orders" element="order" />
                 <Route path="/List" element={<Employees />} />
                 <Route path="/PageNote" element={<Customers />} />
+=======
+
+                {/* type  */}
+                <Route path="/ListScript" element={<ListScript />} />
+                <Route path="/ListIntent" element={<ListIntent/>} />
+                <Route path="/ListPattern" element={<ListPattern />} />
+>>>>>>> Stashed changes
               
 
                 {/* apps  */}

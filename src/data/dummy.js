@@ -485,6 +485,7 @@ export const links = [
     title: 'Type',
     links: [
       {
+<<<<<<< Updated upstream
         name: 'AI',
         icon: <AiOutlineShoppingCart />,
       },
@@ -494,6 +495,21 @@ export const links = [
       },
       {
         name: 'PageNote',
+=======
+        name: 'ListScript',
+        icon: <AiOutlineShoppingCart />,
+      },
+      {
+        name: 'ListIntent',
+        icon: <IoMdContacts />,
+      },
+      {
+        name: 'ListPattern',
+        icon: <RiContactsLine />,
+      },
+      {
+        name: 'Coppy',
+>>>>>>> Stashed changes
         icon: <RiContactsLine />,
       },
     ],

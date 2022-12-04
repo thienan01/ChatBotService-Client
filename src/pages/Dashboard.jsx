@@ -7,14 +7,13 @@ import { useStateContext } from '../contexts/ContextProvider';
 import Sidebar from "../components/DashboardObject/Sidebar"
 import Navbar from '../components/DashboardObject/Navbar';
 import ThemeSetting from "../components/DashboardObject/ThemeSettings"
-import Employees from './Employees';
-import Customers from './Customers';
 
 import Trainpage from './Trainpage';
 import FlowContainer from './Flow';
 import ListScript from './ListScript'
 import ListIntent from './ListIntent'
 import ListPattern from './ListPattern'
+import HomePage from './HomePage';
   
 
 
@@ -32,7 +31,7 @@ const Dashboard=() => {
       }
     }, []);
   return (
-<div className={currentMode === 'Dark' ? 'dark' : ''}>
+<div className={currentMode === 'Dark' ? 'dark' : 'dark'}>
       <BrowserRouter>
         <div className="flex relative dark:bg-main-dark-bg">
           <div className="fixed right-4 bottom-4" style={{ zIndex: '1000' }}>
@@ -77,6 +76,7 @@ const Dashboard=() => {
 
               <Routes>
                 {/* dashboard  */}
+                <Route path="/" element={<HomePage/>} />
                 <Route path="/AI" element={<Trainpage/>} />
 
 

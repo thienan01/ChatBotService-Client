@@ -55,7 +55,7 @@ const Trainpage = () => {
         <Col className='col-5'>
           <div className='ml-3 mt-8 px-20'>
             <button onClick={() => activeShow(true)} className='p-2 block'>Chủ đề đào tạo</button>
-            <button onClick={() => activeShow(false,true,false)} className='p-2 block'>Dữ liệu đã đào tạo</button>
+            {/* <button onClick={() => activeShow(false,true,false)} className='p-2 block'>Dữ liệu đã đào tạo</button> */}
             </div>
           </Col>
       </div>

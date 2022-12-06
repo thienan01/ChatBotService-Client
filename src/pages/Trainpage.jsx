@@ -1,33 +1,26 @@
 import React, { useState } from 'react';
-import { BsCurrencyDollar } from 'react-icons/bs';
 import Button from '../components/DashboardObject/Button';
-import { earningData, medicalproBranding, recentTransactions, weeklyStats, dropdownData, SparklineAreaData, ecomPieChartData } from '../data/dummy';
 import  Header  from '../components/DashboardObject/Header';
 import { useStateContext } from '../contexts/ContextProvider';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, Row, Col } from 'reactstrap';
-import { RiH1 } from 'react-icons/ri';
+import {  Col } from 'reactstrap';
 
 
 const Trainpage = () => { 
     const[topicShow,setTopicShow] =useState(true)
     const[objectShow,setObjectShow] =useState(false)
-    const [historyShow, setHistoryShow] = useState(false)
   function activeShow(topicShow,objectShow,historyShow) {
     if (topicShow === true)
     {
       setTopicShow(true);
       setObjectShow(false);
-      setHistoryShow(false);
 
     } else if (objectShow === true)
     {
       setObjectShow(true);
       setTopicShow(false);
-      setHistoryShow(false);
     } else if (historyShow === true)
     {
-      setHistoryShow(true);
       setTopicShow(false);
       setObjectShow(false);
     }
@@ -58,13 +51,11 @@ const Trainpage = () => {
             </div>
           ) : null}
           {objectShow ? (<div>Du lieu da dao tao</div>):null}
-          {historyShow ?(<div>Lich su dao tao</div>):null}
         </Col>
         <Col className='col-5'>
           <div className='ml-3 mt-8 px-20'>
             <button onClick={() => activeShow(true)} className='p-2 block'>Chủ đề đào tạo</button>
             <button onClick={() => activeShow(false,true,false)} className='p-2 block'>Dữ liệu đã đào tạo</button>
-            <button onClick={() => activeShow(false,false,true)} className='p-2 block'>Lịch sử đào tạo</button>
             </div>
           </Col>
       </div>

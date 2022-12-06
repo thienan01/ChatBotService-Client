@@ -30,12 +30,12 @@ const ThemeSettings = () => {
           <div className="mt-4">
             <input
                type="radio"
-               id="dark"
+               id="light"
                name="theme"
-               value="Dark"
+               value="Light"
               className="cursor-pointer"
               onChange={setMode}
-              checked={currentMode === 'Dark'}
+              checked={currentMode === 'Light'}
             />
             <label htmlFor="dark" className="ml-2 text-md cursor-pointer">
               Light
@@ -44,12 +44,12 @@ const ThemeSettings = () => {
           <div className="mt-2">
             <input
               type="radio"
-              id="dark"
+              id="light"
               name="theme"
-              value="Dark"
+              value="Light"
               onChange={setMode}
               className="cursor-pointer"
-              checked={currentMode === 'Dark'}
+              checked={currentMode === 'Light'}
             />
             {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
             <label htmlFor="dark" className="ml-2 text-md cursor-pointer">

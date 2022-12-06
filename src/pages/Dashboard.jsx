@@ -9,7 +9,6 @@ import Navbar from '../components/DashboardObject/Navbar';
 import ThemeSetting from "../components/DashboardObject/ThemeSettings"
 
 import Trainpage from './Trainpage';
-import FlowContainer from './Flow';
 import ListScript from './ListScript'
 import ListIntent from './ListIntent'
 import ListPattern from './ListPattern'
@@ -31,7 +30,7 @@ const Dashboard=() => {
       }
     }, []);
   return (
-<div className={currentMode === 'Dark' ? 'dark' : 'dark'}>
+<div className={currentMode === 'Dark' ? 'light' : 'light'}>
       <BrowserRouter>
         <div className="flex relative dark:bg-main-dark-bg">
           <div className="fixed right-4 bottom-4" style={{ zIndex: '1000' }}>

@@ -38,6 +38,8 @@ const Login = () => {
         if (res.http_status !== "OK") {
           throw res.exception_code;
         }
+        getCookie("secretkey", res.secret_key, 3)
+        console.log(res.secret_key)
         setCookie("token", res.token, 3);
         navigate("/dashboard");
       });

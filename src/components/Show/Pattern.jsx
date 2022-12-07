@@ -61,7 +61,6 @@ function Pattern() {
 
 
   const [addFormData, setAddFormData] = useState({
-    id: uniqueID,
     intent_id: "",
     content: "",
   });
@@ -204,11 +203,13 @@ function Pattern() {
     setAddFormData(newFormData);
   };
 
-  function createData(data) {
+  const createData = (data) => {
     POST( BASE_URL_LOCAL + `/api/pattern/add`, JSON.stringify(data))
     .then(response => {
       console.log(response)
-      return response.payload()})
+      return response.payload
+    })
+    .then(data => this.setDataSource1(data.id))
   }
   const updateData = (data) => {
     POST(BASE_URL_LOCAL + `/api/pattern/update`, JSON.stringify(data))
@@ -220,6 +221,7 @@ function Pattern() {
   const handleAddFormSubmit = (event) => {
     event.preventDefault();
     const newData = {
+      id: uniqueID,
       intent_id: addFormData.intent_id,
       content: addFormData.content,
     };
@@ -373,9 +375,7 @@ function Pattern() {
           open={visible}
           okText="Save"
           onCancel={handleCancel}
-          onOk={() => 
-            handleAddFormSubmit
-          }  
+          onOk={handleAddFormSubmit}  
         >
           <AddFormPattern
           handleAddFormChange={handleAddFormChange}

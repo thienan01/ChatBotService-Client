@@ -4,6 +4,7 @@ import { EditOutlined, DeleteOutlined, SaveOutlined, EyeOutlined, SearchOutlined
 import Highlighter from 'react-highlight-words';
 import AddForm from "./AddForm";
 import {GET, POST} from '../../functionHelper/APIFunction'
+import uniqueID1 from "../../functionHelper/GenerateID";
 import uniqueID from "../../functionHelper/GenerateID";
 import AddFormPattern from "./AddFormPattern";
 import { BASE_URL_LOCAL } from '../../global/globalVar'
@@ -15,6 +16,8 @@ import '../../styles/designbutton.css'
 function Intent() {
   const [isEditing, setIsEditing] = useState(false);
   const [editingData, setEditingData] = useState(null);
+  const [isEditingPattern, setIsEditingPattern] = useState(false);
+  const [editingDataPattern, setEditingDataPattern] = useState(null);
   const [loading, setLoading] = useState(false);
   const [isPattern, setIsPattern] = useState(false);
   const [visible, setVisible] = useState(false);
@@ -51,7 +54,7 @@ function Intent() {
         setLoading(false);
       })
   };
-  const fetchPattern = (page) => {
+  const fetchPattern = () => {
     setLoading1(true);
     GET(BASE_URL_LOCAL +`/api/pattern/get_all/by_intent_id/${editingData?.id}`)
         .then((res) => {
@@ -60,25 +63,25 @@ function Intent() {
           console.log(res.patterns)
         })
   }
-  function Wait5s() {
-    setInterval(checkStatus, 1000);
-  }
+  // function Wait5s() {
+  //   setInterval(checkStatus, 1000);
+  // }
   const checkStatus = () => {
     GET(BASE_URL_LOCAL + `/api/training/get_server_status`)
     .then((res) => {
     console.log(res.status)
-
       if (res.status === "BUSY"){
         openNotificationBUSY()
         console.log(res.status)
       }
       else if (res.status === "FREE"){
-        clearInterval(Wait5s)
+        //clearInterval(Wait5s)
       }
     })
   }
   useEffect(() => {
     fetchRecords(1);
+    fetchPattern();
   }, [])
 
   const [searchText, setSearchText] = useState('');
@@ -216,7 +219,6 @@ function Intent() {
     code: "",
   });
   const [addFormDataPattern, setAddFormDataPattern] = useState({
-    id: uniqueID,
     intent_id: "",
     content: "",
   });
@@ -231,15 +233,18 @@ function Intent() {
     setAddFormDataPattern(newFormDataPattern);
   };
 
-  function createDataPattern(data) {
+  const createDataPattern = (data) => {
     POST( BASE_URL_LOCAL + `/api/pattern/add`, JSON.stringify(data))
     .then(response => {
       console.log(response)
-      return response.payload()})
+      return response.payload
+    })
+    .then(data => this.setDataSource1(data.id))
   }
   const handleAddFormSubmitPattern = (event) => {
     event.preventDefault();
     const newData = {
+      id: uniqueID1,
       intent_id: addFormDataPattern.intent_id,
       content: addFormDataPattern.content,
     };
@@ -254,8 +259,6 @@ function Intent() {
     event.preventDefault();
     const fieldName = event.target.getAttribute("name");
     const fieldValue = event.target.value;
-
-
     const newFormData = { ...addFormData };
     newFormData[fieldName] = fieldValue;
 
@@ -277,6 +280,13 @@ function Intent() {
       console.log(response)
       return response.payload})
     .then(data => this.setDataSource(data.id))
+  }
+  const updateDataPattern = (data) => {
+    POST(BASE_URL_LOCAL + `/api/pattern/update`, JSON.stringify(data))
+    .then(response => {
+      console.log(response)
+      return response.payload})
+    .then(data => this.setDataSource1(data.id))
   }
 
   const handleAddFormSubmit = async (event) => {
@@ -343,8 +353,8 @@ function Intent() {
             />
             <EyeOutlined
             onClick={() =>{
+              fetchPattern()
               onViewData(record)
-              Wait5s()
               checkStatus()
               console.log(record.id)
             }}
@@ -377,19 +387,19 @@ function Intent() {
           <>
             <EditOutlined
               onClick={() => {
-                onEditData(record);
+                onEditDataPattern(record);
               }}
             />
             <DeleteOutlined
               onClick={() => {
-                onDeleteData(record);
+                onDeleteDataPattern(record);
               }}
               style={{ color: "red", marginLeft: 12 }}
             />
             <SaveOutlined 
             onClick={() =>{
-              updateData(record, function(){
-                fetchRecords(1);
+              updateDataPattern(record, function(){
+                fetchPattern();
               })
             }}
             style={{ color: "blue", marginLeft: 12 }}
@@ -412,6 +422,18 @@ function Intent() {
       },
     });
   };
+  const onDeleteDataPattern = (record) => {
+    Modal.confirm({
+      title: "Are you sure, you want to delete this Data record?",
+      okText: "Yes",
+      okType: "danger",
+      onOk: () => {
+        setDataSource1((pre) => {
+          return pre.filter((data) => data.id !== record.id);
+        });
+      },
+    });
+  };
 
   const onViewData = (record) => {
     fetchPattern()
@@ -427,10 +449,22 @@ function Intent() {
       fetchRecords(1);
     })
   };
+
+  const onEditDataPattern = (record) => {
+    setIsEditingPattern(true);
+    setEditingDataPattern({ ...record });
+    updateDataPattern(record, function(){
+      fetchPattern();
+    })
+  };
   
   const resetEditing = () => {
     setIsEditing(false);
     setEditingData(null);
+  };
+  const resetEditingPattern = () => {
+    setIsEditingPattern(false);
+    setEditingDataPattern(null);
   };
   return (
     <div className="Script">
@@ -451,23 +485,6 @@ function Intent() {
           },
         }}
         ></Table>
-        {/* <Modal
-          title="Delete Data"
-          open={isDeleteing}
-          okText="Confirm"
-          onCancel={() => {
-            resetDeleteing();
-          }}
-          onOk={() => {
-            setDataSource((pre) => {
-                  return pre.filter((data) => data.id !== pre.id);
-              });
-            resetDeleteing();
-          }
-        }
-        >
-          
-        </Modal> */}
         <Modal
           title="Edit Data"
           open={isEditing}
@@ -516,6 +533,42 @@ function Intent() {
           <br />
         </Modal>
 
+        <Modal
+          title="Edit Data"
+          open={isEditingPattern}
+          okText="Confirm"
+          onCancel={() => {
+            resetEditingPattern();
+          }}
+          onOk={() => {
+            setDataSource1((pre) => {
+              return pre.map((data) => {
+                if (data.id === editingDataPattern.id) {
+                  return editingDataPattern;
+                } else {
+                  return data;
+                }
+              });
+
+            });
+            resetEditingPattern();
+          }
+        }
+        >
+          <br />
+          <Space.Compact block>
+          <Input
+            value={editingDataPattern?.content}
+            onChange={(e) => {
+              setEditingDataPattern((pre) => {
+                return { ...pre, content: e.target.value };
+              });
+            }}
+          />
+          </Space.Compact> 
+          <br />
+        </Modal>
+
        <Modal
           forceRender
           title="Add Data"
@@ -534,9 +587,7 @@ function Intent() {
           open={visible1}
           okText="Save"
           onCancel={handleCancel2}
-          onOk={() => 
-            handleAddFormSubmitPattern
-          }  
+          onOk={handleAddFormSubmitPattern}  
         >
           <AddFormPattern
           handleAddFormChange={handleAddFormChangePattern}
@@ -558,9 +609,7 @@ function Intent() {
         <Modal
           title={editingData?.name}
           open={isPattern}
-         width={1000}
-         
-
+          width={1000}
           onCancel={() => {
             handleCancel1();
           }}
@@ -581,7 +630,7 @@ function Intent() {
          rowKey="id"
          pagination={{
           pageSize: 5,
-          total: 20,
+          total: 2000,
         }}
          ></Table>
         </Modal>

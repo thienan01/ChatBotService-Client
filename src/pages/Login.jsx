@@ -39,7 +39,7 @@ const Login = () => {
           throw res.exception_code;
         }
         setCookie("token", res.token, 3);
-        navigate("/train");
+        navigate("/dashboard");
       });
     } catch (e) {
       console.log(e);

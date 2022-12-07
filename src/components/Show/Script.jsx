@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { EditOutlined, DeleteOutlined} from "@ant-design/icons";
 import {GET, POST} from '../../functionHelper/APIFunction'
 import { BASE_URL_LOCAL } from '../../global/globalVar'
+import '../../styles/designbutton.css'
 
 
 
@@ -121,7 +122,7 @@ function Script() {
   return (
     <div className="Script">
       <header className="Script-header">
-      <Button onClick={showScript} className="btn btn-success" data-toggle="modal"><i class="ri-chat-forward-fill"></i> <span>&nbsp; Get the code </span></Button>
+      <Button onClick={showScript} className="btn btn-success button__add" data-toggle="modal"><i class="ri-chat-forward-fill"></i> <span>&nbsp; Get the code </span></Button>
       <br />
       <br />
 

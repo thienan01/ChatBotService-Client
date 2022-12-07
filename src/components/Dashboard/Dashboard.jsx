@@ -1,4 +1,5 @@
 import React from 'react';
+import '../../styles/sidebar.css'
 import {
     DesktopOutlined,
     UnorderedListOutlined,
@@ -9,6 +10,7 @@ import {
 import { Breadcrumb, Layout, Menu, theme } from 'antd';
 import Intent from '../Show/Intent';
 import { useNavigate } from 'react-router-dom';
+import { red } from '@mui/material/colors';
 const { Content, Sider } = Layout;
 function getItem(label, key, icon, children) {
   return {
@@ -33,7 +35,9 @@ const navigate = useNavigate();
   return (
     <Layout>
       <Layout>
-        <Sider
+        <div className='outside__sidebar'>
+        <div className='sidebar'>
+          <Sider
           width={200}
           style={{
             background: colorBgContainer,
@@ -49,12 +53,16 @@ const navigate = useNavigate();
             style={{
               height: '100%',
               borderRight: 0,
+              borderTop: 0,
+              fontSize: '17px',
             }}
             items={items2}
             
           >
         </Menu>
         </Sider>
+          </div>
+          </div>
         <Layout
           style={{
             padding: '0 24px 24px',

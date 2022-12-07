@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/sidebar.css'
 import {
   DesktopOutlined,
   UnorderedListOutlined,
@@ -34,6 +35,8 @@ const navigate = useNavigate();
   return (<Helmet title="List Intent">
     <Layout>
       <Layout>
+      <div className='outside__sidebar'>
+        <div className='sidebar'>
         <Sider
           width={200}
           style={{
@@ -50,12 +53,16 @@ const navigate = useNavigate();
             style={{
               height: '100%',
               borderRight: 0,
+              borderTop: 0,
+              fontSize: '17px',
             }}
             items={items2}
             
           >
         </Menu>
         </Sider>
+        </div>
+          </div>
         <Layout
           style={{
             padding: '0 24px 24px',

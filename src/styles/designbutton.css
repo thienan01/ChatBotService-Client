@@ -1,0 +1,8 @@
+.button__add{
+ height: 40px;
+ width: max-content;
+ position: relative;
+ left: 80%;
+ margin-top: -40px;
+
+}

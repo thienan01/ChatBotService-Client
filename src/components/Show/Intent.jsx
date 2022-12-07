@@ -8,6 +8,7 @@ import uniqueID from "../../functionHelper/GenerateID";
 import AddFormPattern from "./AddFormPattern";
 import { BASE_URL_LOCAL } from '../../global/globalVar'
 import axios from "axios";
+import '../../styles/designbutton.css'
 
 
 
@@ -434,7 +435,7 @@ function Intent() {
   return (
     <div className="Script">
       <header className="Script-header">
-      <Button onClick={showAdd} className="btn btn-success" data-toggle="modal"><i className="ri-add-circle-fill"></i> <span> Create </span></Button>
+      <Button onClick={showAdd} className="btn btn-success button__add" data-toggle="modal"><i className="ri-add-circle-fill"></i> <span className="span__create"> Create </span></Button>
       <br />
       <br />
         <Table
@@ -443,7 +444,7 @@ function Intent() {
          dataSource={dataSource}
          rowKey="id"
          pagination={{
-          pageSize: 5,
+          pageSize: 10,
           total: 1000,
           onChange: (page) => {
             fetchRecords(page);

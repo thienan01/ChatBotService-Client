@@ -6,6 +6,7 @@ import uniqueID from "../../functionHelper/GenerateID";
 import AddFormPattern from "./AddFormPattern";
 import Highlighter from 'react-highlight-words';
 import { BASE_URL_LOCAL } from '../../global/globalVar'
+import '../../styles/designbutton.css'
 
 
 
@@ -301,7 +302,7 @@ function Pattern() {
   return (
     <div className="Script">
       <header className="Script-header">
-      <Button onClick={showAdd} className="btn btn-success" data-toggle="modal"><i className="ri-add-circle-fill"></i> <span> Create </span></Button>
+      <Button onClick={showAdd} className="btn btn-success button__add" data-toggle="modal"><i className="ri-add-circle-fill"></i> <span> Create </span></Button>
       {contextHolder}
         <Table 
         loading={loading}

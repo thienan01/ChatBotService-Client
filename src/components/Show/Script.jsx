@@ -1,4 +1,4 @@
-import { Table, Modal, Input, Space, Form, Typography} from "antd";
+import {Button, Table, Modal, Input, Space, Form, Typography} from "antd";
 import { useState, useEffect } from "react";
 import { EditOutlined, DeleteOutlined, EyeOutlined} from "@ant-design/icons";
 import {GET, POST} from '../../functionHelper/APIFunction'
@@ -45,7 +45,6 @@ function Script() {
   const showScript = (record) => {
     fecthSecretKey()
     setVisible(true)
-    console.log(getCookie.secretkey)
     setEditingData({...record})
   }
 
